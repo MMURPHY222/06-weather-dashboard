@@ -7,9 +7,7 @@ var mainHum = document.getElementById("mainHum");
 var mainUV = document.getElementById("mainUV");
 var mainHeader = document.getElementById("mainHeader");
 var cardHeader = document.getElementsByClassName("cardHeader");
-var cardTemp = document.getElementsByClassName("cardTemp");
-var cardWind = document.getElementsByClassName("cardWind");
-var cardHum = document.getElementsByClassName("cardHum");
+
 
 function formSubmit(event){
     event.preventDefault();
@@ -131,9 +129,19 @@ function fillCards(forecastArray){
     console.log(forecastArray);
 
     for(var i = 0; i < 5; i ++){
+        var cardTemp = document.getElementById("cardTemp" + i);
+        var cardWind = document.getElementById("cardWind" + i);
+        var cardHum = document.getElementById("cardHum" + i);
+
+        console.log("POOP" + cardTemp);
+
         var temp = forecastArray[i].main.temp;
         var wind = forecastArray[i].wind.speed;
         var hum = forecastArray[i].main.humidity;
+
+        cardTemp.textContent = "Temp: " + temp  + "°F";
+        cardWind.textContent = "Wind: " + wind + " mph";
+        cardHum.textContent = "Humidity: " + hum + "%";
 
         console.log("TEMP " + i + " " + temp);
         console.log("Wind " + i + " " + wind);
