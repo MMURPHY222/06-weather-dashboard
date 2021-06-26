@@ -23,3 +23,7 @@
     margin-top: 10%;
     background-image: linear-gradient(to bottom right, lightgrey, lavender);
 }
+
+.forecast {
+    line-height: 20px;
+}
