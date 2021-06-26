@@ -110,7 +110,7 @@ function writeUV(uvi) {
 }
 
 function forecast(city) {
-    var apiUrl3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&cnt=5&appid=" + apiKey;
+    var apiUrl3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
 
     fetch(apiUrl3)
     .then(function(response){
@@ -125,23 +125,27 @@ function forecast(city) {
 }
 
 function fillCards(forecastArray){
-    console.log("Under me is supposed to be an array of 5 days");
+    console.log("Under me is supposed to be an array of 5 in 40 3 hour increments days");
     console.log(forecastArray);
 
     for(var i = 0; i < 5; i ++){
         var cardTemp = document.getElementById("cardTemp" + i);
         var cardWind = document.getElementById("cardWind" + i);
         var cardHum = document.getElementById("cardHum" + i);
+        var cardHeader = document.getElementById("cardHeader" + i);
 
-        console.log("POOP" + cardTemp);
+        var temp = forecastArray[8*i].main.temp;
+        var wind = forecastArray[8*i].wind.speed;
+        var hum = forecastArray[8*i].main.humidity;
+        var date = forecastArray[8*i].dt;
 
-        var temp = forecastArray[i].main.temp;
-        var wind = forecastArray[i].wind.speed;
-        var hum = forecastArray[i].main.humidity;
-
+        var newDate = moment(date*1000).format('MM/DD/YY');
+        console.log("lol " + newDate);
+        
         cardTemp.textContent = "Temp: " + temp  + "°F";
         cardWind.textContent = "Wind: " + wind + " mph";
         cardHum.textContent = "Humidity: " + hum + "%";
+        cardHeader.textContent = newDate;
 
         console.log("TEMP " + i + " " + temp);
         console.log("Wind " + i + " " + wind);
