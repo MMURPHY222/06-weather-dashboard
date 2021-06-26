@@ -6,6 +6,10 @@ var mainWind = document.getElementById("mainWind");
 var mainHum = document.getElementById("mainHum");
 var mainUV = document.getElementById("mainUV");
 var mainHeader = document.getElementById("mainHeader");
+var cardHeader = document.getElementsByClassName("cardHeader");
+var cardTemp = document.getElementsByClassName("cardTemp");
+var cardWind = document.getElementsByClassName("cardWind");
+var cardHum = document.getElementsByClassName("cardHum");
 
 function formSubmit(event){
     event.preventDefault();
@@ -44,7 +48,7 @@ function searchApi(city){
             getUV(lat,lon);
         })
 
-    
+        forecast(city);
         fillText(city);
     }
 
@@ -69,6 +73,7 @@ function getUV(lat,lon) {
         return response.json();
     })
    .then(function(item){
+        console.log("Whatever is under me is the call to get UV using lat and lon");
         console.log(item);
 
         uvi = item.current.uvi;
@@ -103,6 +108,36 @@ function writeUV(uvi) {
     
     if (11 <= uvi) {
         mainUV.classList.add("extreme")
+    }
+}
+
+function forecast(city) {
+    var apiUrl3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&cnt=5&appid=" + apiKey;
+
+    fetch(apiUrl3)
+    .then(function(response){
+        return response.json();
+    })
+   .then(function(item){
+        console.log("My underside is supposed to be 5 day forecast");
+        console.log(item);
+        forecastArray = item.list;
+        fillCards(forecastArray);
+    })
+}
+
+function fillCards(forecastArray){
+    console.log("Under me is supposed to be an array of 5 days");
+    console.log(forecastArray);
+
+    for(var i = 0; i < 5; i ++){
+        var temp = forecastArray[i].main.temp;
+        var wind = forecastArray[i].wind.speed;
+        var hum = forecastArray[i].main.humidity;
+
+        console.log("TEMP " + i + " " + temp);
+        console.log("Wind " + i + " " + wind);
+        console.log("Hum " + i + " " + hum);
     }
 }
 
