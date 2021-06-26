@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-info bg-gradient">
+        <p class="navbar-brand text-light font-weight-bold">
+          Weather Dashboard
+        </p>
+    </nav>
+
+    <div class = "container">
+        <div class = "row pt-1">
+            <form class = "form border border-dark col-3 pr-2 align-self-start">
+                <div class="form-group">
+                    <label class = "font-weight-bold">Search for a City</label>
+                    <input type="text" class="form-control" id="city" placeholder="San Diego">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class = "border border-dark col-9 my-current ">
+                This is where the searched city's forecast will appear
+            </div>
+        </div>
+        
+        <div class = "row pb-1">
+            <div class = "col-3 border border-dark my-search"> This is where recent searches will appear</div>
+            <div class = "col-9 border border-dark container"> 
+                <div class = "row">
+                    <div class = "card col my-card shadow">
+                        <div class = "card-body">
+                            card meat goes here
+                        </div>
+                    </div>
+                    <div class = "card col my-card shadow">
+                        <div class = "card-body">
+                            card meat goes here
+                        </div>
+                    </div>
+                    <div class = "card col my-card shadow">
+                        <div class = "card-body">
+                            card meat goes here
+                        </div>
+                    </div>
+                    <div class = "card col my-card shadow">
+                        <div class = "card-body">
+                            card meat goes here
+                        </div>
+                    </div>
+                    <div class = "card col my-last-card shadow">
+                        <div class = "card-body">
+                            card meat goes here
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    <script src = "assets/js/script.js"></script>
+</body>
+</html>

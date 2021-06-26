@@ -1,0 +1,25 @@
+:root{
+    --blue: rgb(22, 22, 190);
+    --lightblue:  rgb(112, 157, 172);
+}
+
+.my-search{
+    height: 350px;
+}
+
+.my-current{
+    height: 250px;
+}
+
+.my-card{
+    height: 200px;
+    margin-top: 10%;
+    margin-right:2%;
+    background-image: linear-gradient(to bottom right, lightgrey, lavender);
+}
+
+.my-last-card{
+    height: 200px;
+    margin-top: 10%;
+    background-image: linear-gradient(to bottom right, lightgrey, lavender);
+}
