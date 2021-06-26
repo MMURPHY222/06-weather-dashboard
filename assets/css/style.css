@@ -23,3 +23,27 @@
     margin-top: 10%;
     background-image: linear-gradient(to bottom right, lightgrey, lavender);
 }
+
+.low{
+    background-color: green;
+    color: whitesmoke;
+}
+
+.moderate{
+    background-color: yellow;
+}
+
+.high{
+    background-color: orange;
+    color: whitesmoke;
+}
+
+.veryHigh{
+    background-color: red;
+    color: whitesmoke;
+}
+
+.extreme{
+    background-color: purple;
+    color: whitesmoke;
+}

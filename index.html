@@ -26,12 +26,12 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             <div class = "border border-dark col-9 my-current ">
-                <h1 class = "city-header"></h1>
+                <h1 id = "mainHeader"></h1>
                 <ul>
-                    <li>Temp:</li>
-                    <li>Wind:</li>
-                    <li>Humidity</li>
-                    <li>UV Index</li>
+                    <li id = "mainTemp">Temp</li>
+                    <li id = "mainWind">Wind</li>
+                    <li id = "mainHum">Humidity</li>
+                    <li id = "mainUV" class = "rounded">UV Index</li>
                 </ul>
             </div>
         </div>
@@ -72,7 +72,8 @@
         
         
     </div>
-    
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
