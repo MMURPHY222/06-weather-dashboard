@@ -18,7 +18,7 @@
 
     <div class = "container">
         <div class = "row pt-1">
-            <form class = "form border border-dark col-3 pr-2 align-self-start">
+            <form class = "form border border-dark col-3 pr-2 align-self-start" id = "search-form">
                 <div class="form-group">
                     <label class = "font-weight-bold">Search for a City</label>
                     <input type="text" class="form-control" id="city" placeholder="San Diego">
@@ -26,7 +26,13 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             <div class = "border border-dark col-9 my-current ">
-                This is where the searched city's forecast will appear
+                <h1 class = "city-header"></h1>
+                <ul>
+                    <li>Temp:</li>
+                    <li>Wind:</li>
+                    <li>Humidity</li>
+                    <li>UV Index</li>
+                </ul>
             </div>
         </div>
         
@@ -67,6 +73,10 @@
         
     </div>
     
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
     <script src = "assets/js/script.js"></script>
 </body>
 </html>
