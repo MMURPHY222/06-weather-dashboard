@@ -7,6 +7,7 @@ var mainHum = document.getElementById("mainHum");
 var mainUV = document.getElementById("mainUV");
 var mainHeader = document.getElementById("mainHeader");
 var cardHeader = document.getElementsByClassName("cardHeader");
+var recent = document.getElementById("recent");
 
 
 function formSubmit(event){
@@ -50,10 +51,13 @@ function searchApi(city){
             console.log("This is wind " + wind);
             writeTemp(temp, wind, hum, icon);
             getUV(lat,lon);
+            localStorage.setItem(city, item);
         })
 
         forecast(city);
         fillText(city);
+        makeRecent(city);
+        // storeAndShow();
     }
 
 function fillText(city){
@@ -162,5 +166,17 @@ function fillCards(forecastArray){
     }
 }
 
+function makeRecent(city){
+    var li = document.createElement("li");
+    li.textContent = city;
+    li.classList.add("recent-search");
+    recent.appendChild(li);
+}
+
+// function storeAndShow (city){
+//     title = city;
+
+
+// }
 
 searchFormEl.addEventListener('submit', formSubmit);

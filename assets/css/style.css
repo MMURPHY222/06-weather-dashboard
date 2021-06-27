@@ -51,11 +51,28 @@
 }
 
 .width-change{
-    width: 10%;
+    width: 15%;
+}
+
+.recent {
+    background: #eee;
+    width: 90%;
+}
+
+.recent-search{
+    background: #32c1d1;
+    border: 1px solid #eee;
+    border-radius: 1em;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.margin-change{
+    margin: .8em 0;
 }
 
 li {
-    margin: .5em 0;
+    margin: .3em 0;
 }
 
 .low{
@@ -80,4 +97,9 @@ li {
 .extreme{
     background: purple;
     color: whitesmoke;
+}
+
+.recent-search:hover {
+    border-color: black;
+    cursor: pointer;
 }
