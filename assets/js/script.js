@@ -133,19 +133,24 @@ function fillCards(forecastArray){
         var cardWind = document.getElementById("cardWind" + i);
         var cardHum = document.getElementById("cardHum" + i);
         var cardHeader = document.getElementById("cardHeader" + i);
+        var cardIcon = document.getElementById("cardIcon" + i);
 
         var temp = forecastArray[8*i].main.temp;
         var wind = forecastArray[8*i].wind.speed;
         var hum = forecastArray[8*i].main.humidity;
         var date = forecastArray[8*i].dt;
+        var icon = forecastArray[8*i].weather[0].icon;
 
         var newDate = moment(date*1000).format('MM/DD/YY');
         console.log("lol " + newDate);
+
+        console.log("POOOOP" + icon);
         
         cardTemp.textContent = "Temp: " + temp  + "°F";
         cardWind.textContent = "Wind: " + wind + " mph";
         cardHum.textContent = "Humidity: " + hum + "%";
         cardHeader.textContent = newDate;
+        cardIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
 
         console.log("TEMP " + i + " " + temp);
         console.log("Wind " + i + " " + wind);
