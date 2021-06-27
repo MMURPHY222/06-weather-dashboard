@@ -40,9 +40,11 @@ function searchApi(city){
             hum = item.main.humidity;
             lat = item.coord.lat;
             lon = item.coord.lon;
+            icon = item.weather[0].icon;
+            console.log("This is icon main " + icon);
             console.log("This is temp " + temp);
-            console.log("This is wind " + wind)
-            writeTemp(temp, wind, hum);
+            console.log("This is wind " + wind);
+            writeTemp(temp, wind, hum, icon);
             getUV(lat,lon);
         })
 
@@ -55,8 +57,12 @@ function fillText(city){
     mainHeader.textContent = city + "   " + currentDay;
 }
 
-function writeTemp(temp, wind, hum){
+function writeTemp(temp, wind, hum, icon){
+    console.log("You too? " + icon);
     console.log("Can I use this here? " + temp);
+
+    
+    mainIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
     mainTemp.textContent = "Temp: " + temp + "°F";
     mainWind.textContent = "Wind: " + wind + " mph";
     mainHum.textContent = "Humidity: " + hum + "%";

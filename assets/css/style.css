@@ -5,6 +5,8 @@
 
 .my-search{
     height: 350px;
+    border: dashed 2px #eee;
+    padding-right: 1em;
 }
 
 .my-current{
@@ -22,6 +24,30 @@
     height: 200px;
     margin-top: 10%;
     background-image: linear-gradient(to bottom right, lightgrey, lavender);
+}
+
+.my-img{
+    height: 2em;
+    width: 2em;
+}
+
+.my-header-style{
+    font-size: xx-large;
+}
+
+.my-list{
+    font-size: x-large;
+}
+
+.my-5day{
+    font-size: x-large;
+    margin-left: .25em;
+    padding: .5em;
+    background: #f0d9ff;
+}
+
+li {
+    margin: .5em 0;
 }
 
 .low{

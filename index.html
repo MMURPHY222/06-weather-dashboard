@@ -18,81 +18,84 @@
 
     <div class = "container">
         <div class = "row pt-1">
-            <form class = "form border border-dark col-3 pr-2 align-self-start" id = "search-form">
+            <form class = "form col-3 pr-2 align-self-start" id = "search-form">
                 <div class="form-group">
                     <label class = "font-weight-bold">Search for a City</label>
                     <input type="text" class="form-control" id="city" placeholder="San Diego">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            <div class = "border border-dark col-9 my-current ">
-                <h1 id = "mainHeader"></h1>
+            <div class = "border border-dark col-9 my-current rounded">
+                <h1 id = "mainHeader" class = "font-weight-bold my-header-style"></h1>
                 <ul>
-                    <li id = "mainTemp">Temp</li>
-                    <li id = "mainWind">Wind</li>
-                    <li id = "mainHum">Humidity</li>
-                    <li id = "mainUV" class = "rounded">UV Index</li>
+                    <li class = "my-list"><img id = "mainIcon" class = "my-img" src="" alt="Weather Icon"></li>
+                    <li id = "mainTemp" class = "my-list">Temp: </li>
+                    <li id = "mainWind" class = "my-list">Wind: </li>
+                    <li id = "mainHum" class = "my-list">Humidity: </li>
+                    <li id = "mainUV" class = "rounded my-list">UV Index: </li>
                 </ul>
             </div>
         </div>
         
         <div class = "row pb-1">
-            <div class = "col-2 border border-dark my-search"> This is where recent searches will appear</div>
-            <div class = "col-10 border border-dark container"> 
+            <div class = "col-1 my-search">
+                <h2>Recent Cities</h2>
+            </div>
+            <div class = "col-11 container"> 
                 <div class = "row">
-                    <p class = "p-1 m-0 align-self-start bg-info rounded">5 Day Forecast</p>
+                    <p class = "align-self-start rounded my-5day">5 Day Forecast</p>
                     <div class = "card col my-card shadow">
-                        <div class = "card-body">
-                            <h2 id = "cardHeader0"></h2>
+                        <div class = "card-body ml-0 pl-0">
+                            <h2 id = "cardHeader0" class = "font-weight-bold"></h2>
                             <ul>
-                                <li><img id = "cardIcon0" src="" alt="Weather Icon"></li>
-                                <li id = "cardTemp0">Temp</li>
-                                <li id = "cardWind0">Wind</li>
-                                <li id = "cardHum0">Humidity</li>
+                                <li><img id = "cardIcon0" class = "my-img" src="" alt="Weather Icon"></li>
+                                <li id = "cardTemp0"></li>
+                                <li id = "cardWind0"></li>
+                                <li id = "cardHum0"></li>
                             </ul>
                         </div>
                     </div>
                     <div class = "card col my-card shadow">
-                        <div class = "card-body">
-                            <h2 id = "cardHeader1"></h2>
+                        <div class = "card-body ml-0 pl-0">
+                            <h2 id = "cardHeader1" class = "font-weight-bold"></h2>
                             <ul>
-                                <li><img id = "cardIcon1" src="" alt="Weather Icon"></li>
-                                <li id = "cardTemp1">Temp</li>
-                                <li id = "cardWind1">Wind</li>
-                                <li id = "cardHum1">Humidity</li>
+                                <li><img id = "cardIcon1" class = "my-img" src="" alt="Weather Icon"></li>
+                                <li id = "cardTemp1"></li>
+                                <li id = "cardWind1"></li>
+                                <li id = "cardHum1"></li>
                             </ul>
                         </div>
                     </div>
                     <div class = "card col my-card shadow">
-                        <div class = "card-body">
-                            <h2 id = "cardHeader2"></h2>
+                        <div class = "card-body ml-0 pl-0">
+                            <h2 id = "cardHeader2" class = "font-weight-bold"></h2>
                             <ul>
-                                <li><img id = "cardIcon2" src="" alt="Weather Icon"></li>
-                                <li id = "cardTemp2">Temp</li>
-                                <li id = "cardWind2">Wind</li>
-                                <li id = "cardHum2">Humidity</li>
+                                <li><img id = "cardIcon2" class = "my-img" src="" alt="Weather Icon"></li>
+                                <li id = "cardTemp2"></li>
+                                <li id = "cardWind2"></li>
+                                <li id = "cardHum2"></li>
                             </ul>
                         </div>
                     </div>
                     <div class = "card col my-card shadow">
-                        <div class = "card-body">
-                            <h2 id = "cardHeader3"></h2>
+                        <div class = "card-body ml-0 pl-0">
+                            <h2 id = "cardHeader3" class = "font-weight-bold"></h2>
                             <ul>
-                                <li><img id = "cardIcon3" src="" alt="Weather Icon"></li>
-                                <li id = "cardTemp3">Temp</li>
-                                <li id = "cardWind3">Wind</li>
-                                <li id = "cardHum3">Humidity</li>
+                                <li><img id = "cardIcon3" class = "my-img" src="" alt="Weather Icon"></li>
+                                <li id = "cardTemp3"></li>
+                                <li id = "cardWind3"></li>
+                                <li id = "cardHum3"></li>
                             </ul>
                         </div>
                     </div>
                     <div class = "card col my-last-card shadow">
-                        <div class = "card-body">
-                            <h2 id = "cardHeader4"></h2>
+                        <div class = "card-body ml-0 pl-0">
+                            <h2 id = "cardHeader4" class = "font-weight-bold"></h2>
                             <ul>
-                                <li><img  id = "cardIcon4" src="" alt="Weather Icon"></li>
-                                <li id = "cardTemp4">Temp</li>
-                                <li id = "cardWind4">Wind</li>
-                                <li id = "cardHum4">Humidity</li>
+                                <li><img  id = "cardIcon4" class = "my-img" src="" alt="Weather Icon"></li>
+                                <li id = "cardTemp4"></li>
+                                <li id = "cardWind4"></li>
+                                <li id = "cardHum4"></li>
                             </ul>
                         </div>
                     </div>
