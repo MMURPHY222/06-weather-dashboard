@@ -22,6 +22,10 @@ function formSubmit(event){
 
     console.log("What are you " + searchInputVal);
 
+    // if(mainUV.classList.contains("low", "high", "moderate", "veryHigh", "extreme")){
+    //     mainUV.classList.remove("low", "high", "moderate", "veryHigh", "extreme");
+    // }
+
     searchApi(searchInputVal);
 }
 
@@ -81,6 +85,7 @@ function getUV(lat,lon) {
         console.log(item);
 
         uvi = item.current.uvi;
+        console.log("THIS IS THE UV RIGHT HERE " + uvi);
         writeUV(uvi);
 
     })
@@ -90,27 +95,20 @@ function getUV(lat,lon) {
 function writeUV(uvi) {
     mainUV.textContent = "UVI: " + uvi;
 
-    if (uvi < 3 ){
+    if (0 <= uvi < 3 ){
         mainUV.classList.add("low");
+        console.log("the uv is less than 3");
 
-    } 
-    
-    if (3 <= uvi < 6){
+    } else if (3 <= uvi < 6){
         mainUV.classList.add("moderate");
 
-    }
-    
-    if (6 <= uvi < 8){
+    } else if (6 <= uvi < 8){
         mainUV.classList.add("high");
 
-    }
-    
-    if (8 <= uvi < 11) {
+    } else if (8 <= uvi < 11) {
         mainUV.classList.add("veryHigh")
 
-    }
-    
-    if (11 <= uvi) {
+    } else if (11 <= uvi) {
         mainUV.classList.add("extreme")
     }
 }

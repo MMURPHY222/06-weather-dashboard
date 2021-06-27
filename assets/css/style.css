@@ -46,30 +46,38 @@
     background: #f0d9ff;
 }
 
+.list {
+    font-size: smaller;
+}
+
+.width-change{
+    width: 10%;
+}
+
 li {
     margin: .5em 0;
 }
 
 .low{
-    background-color: green;
+    background: green;
     color: whitesmoke;
 }
 
 .moderate{
-    background-color: yellow;
+    background: yellow;
 }
 
 .high{
-    background-color: orange;
+    background: orange;
     color: whitesmoke;
 }
 
 .veryHigh{
-    background-color: red;
+    background: red;
     color: whitesmoke;
 }
 
 .extreme{
-    background-color: purple;
+    background: purple;
     color: whitesmoke;
 }
