@@ -8,8 +8,10 @@ var mainUV = document.getElementById("mainUV");
 var mainHeader = document.getElementById("mainHeader");
 var cardHeader = document.getElementsByClassName("cardHeader");
 var recent = document.getElementById("recent");
+// var recentClick = document.getElementsByClassName("recentClick");
 
-
+// function that runs on search, has error for an attempted search with nothing entered
+// gets value entered into the search form and runs searchApi function with it
 function formSubmit(event){
     event.preventDefault();
 
@@ -23,13 +25,14 @@ function formSubmit(event){
 
     console.log("What are you " + searchInputVal);
 
-    // if(mainUV.classList.contains("low", "high", "moderate", "veryHigh", "extreme")){
-    //     mainUV.classList.remove("low", "high", "moderate", "veryHigh", "extreme");
-    // }
+    if(mainUV.classList.contains("low", "high", "moderate", "veryHigh", "extreme")){
+        mainUV.classList.remove("low", "high", "moderate", "veryHigh", "extreme");
+    }
 
     searchApi(searchInputVal);
 }
 
+// parameter is city name that was searched, fetches initial values for main search and runs functions with those along with other functions with the city name
 function searchApi(city){
     var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + apiKey;
 
@@ -60,11 +63,13 @@ function searchApi(city){
         // storeAndShow();
     }
 
+//writes city and current date in main section
 function fillText(city){
     console.log(city, currentDay);
     mainHeader.textContent = city + "   " + currentDay;
 }
 
+//writes temp, wind, humidity, and icon in main section
 function writeTemp(temp, wind, hum, icon){
     console.log("You too? " + icon);
     console.log("Can I use this here? " + temp);
@@ -77,6 +82,7 @@ function writeTemp(temp, wind, hum, icon){
 
 }
 
+// runs another api call using latitude and longitude from initial to get uvi rating
 function getUV(lat,lon) {
     var apiUrl2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=" + apiKey;
 
@@ -96,6 +102,7 @@ function getUV(lat,lon) {
 
 }
 
+// writes the uvi from getUV function and adds classes to color it based on its rating
 function writeUV(uvi) {
     mainUV.textContent = "UVI: " + uvi;
 
@@ -117,6 +124,7 @@ function writeUV(uvi) {
     }
 }
 
+// another api call was needed for the five day forecast because the previous one did not contain a 5 day forecast
 function forecast(city) {
     var apiUrl3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + apiKey;
 
@@ -132,6 +140,8 @@ function forecast(city) {
     })
 }
 
+// this writes the information for the cards
+// this is a five day forecast in 3 hour intervals so that is why the four loop is run in multiples of 8
 function fillCards(forecastArray){
     console.log("Under me is supposed to be an array of 5 in 40 3 hour increments days");
     console.log(forecastArray);
@@ -166,9 +176,11 @@ function fillCards(forecastArray){
     }
 }
 
+// this makes the recent search list 
 function makeRecent(city){
     var li = document.createElement("li");
     li.textContent = city;
+    li.classList.add("recentClick");
     li.classList.add("recent-search");
     recent.appendChild(li);
 }
@@ -179,4 +191,18 @@ function makeRecent(city){
 
 // }
 
+
+
+// Event listener for submit button click
 searchFormEl.addEventListener('submit', formSubmit);
+
+// $(".recentClick").click( function() {
+//     var buttonId = $(this).val();
+//     searchApi(buttonId);
+//     console.log("I saw your click")
+// })
+
+// recentClick.addEventListener("click", function(){
+
+
+// })

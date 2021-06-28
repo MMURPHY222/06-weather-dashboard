@@ -1,18 +1,16 @@
-:root{
-    --blue: rgb(22, 22, 190);
-    --lightblue:  rgb(112, 157, 172);
-}
-
+/*style for the recent search results box */
 .my-search{
     height: 350px;
     border: dashed 2px #eee;
     padding-right: 1em;
 }
 
+/* style for current search result text in the main box */
 .my-current{
     height: 250px;
 }
 
+/* styling for the first four forecast cards */
 .my-card{
     height: 200px;
     margin-top: 10%;
@@ -20,25 +18,30 @@
     background-image: linear-gradient(to bottom right, lightgrey, lavender);
 }
 
+/* styling for the last forecast card */
 .my-last-card{
     height: 200px;
     margin-top: 10%;
     background-image: linear-gradient(to bottom right, lightgrey, lavender);
 }
 
+/* main icon image */
 .my-img{
     height: 2em;
     width: 2em;
 }
 
+/* main city header and date */
 .my-header-style{
     font-size: xx-large;
 }
 
+/* main list text */
 .my-list{
     font-size: x-large;
 }
 
+/* 5 day forecast header */
 .my-5day{
     font-size: x-large;
     margin-left: .25em;
@@ -46,35 +49,43 @@
     background: #f0d9ff;
 }
 
+/* list within the cards */
 .list {
-    font-size: smaller;
+    font-size: small;
 }
 
+/* width for uvi background coloring */
 .width-change{
     width: 15%;
 }
 
+/* header in recent section */
 .recent {
     background: #eee;
     width: 90%;
 }
 
+/* list items in recent section */
 .recent-search{
     background: #32c1d1;
     border: 1px solid #eee;
     border-radius: 1em;
     padding-left: 4px;
     padding-right: 4px;
+    text-align: center;
 }
 
+/* spacing for list items on cards */
 .margin-change{
     margin: .8em 0;
 }
 
+/* spacing for list items in main */
 li {
     margin: .3em 0;
 }
 
+/* classes below are classes assigned based on uvi rating */
 .low{
     background: green;
     color: whitesmoke;
@@ -99,6 +110,7 @@ li {
     color: whitesmoke;
 }
 
+/* adds border and changes cursor for hover over recent search list */
 .recent-search:hover {
     border-color: black;
     cursor: pointer;

@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- This is the blue nav bar -->
     <nav class="navbar navbar-light bg-info bg-gradient">
         <p class="navbar-brand text-light font-weight-bold">
           Weather Dashboard
         </p>
     </nav>
 
+    <!-- row 1 contains the search for a city form and the main info box with results of the users search -->
     <div class = "container">
         <div class = "row pt-1">
             <form class = "form col-3 pr-2 align-self-start" id = "search-form">
@@ -36,15 +38,16 @@
                 </ul>
             </div>
         </div>
-        
+
+        <!-- row 2 contains the recent search box and five day forecast box -->
         <div class = "row pb-1">
-            <div class = "col-1 my-search">
+            <div class = "col-2 my-search">
                 <h2 class = "recent">Recent</h2>
                 <ul id = "recent">
 
                 </ul>
             </div>
-            <div class = "col-11 container"> 
+            <div class = "col-10 container"> 
                 <div class = "row">
                     <p class = "align-self-start rounded my-5day">5 Day Forecast</p>
                     <div class = "card col my-card shadow">
@@ -109,7 +112,7 @@
         
     </div>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
