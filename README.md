@@ -64,9 +64,26 @@ for(var i = 0; i < 5; i ++){
 
 Within this for loop I gathered all of the elements and made them variables as I would be editing text within them in each of this loops iteration. It runs from 0 to < 5 because that is the number of cards that need to be filled. Navigating the array of 40 values, I multiplied the variable i by 8 each time to allow for the 0 hour of 5 different days to be accessed. The first 5 values in the forecast array would simply have been fifteen hours into the first day. The date is then converted from unix time to month/day/year and added to the page. Text and icons are added after that. The API provides code for each icon and the url that goes with them so the id is the only thing that needed to change each time, rather than the entire url. 
 
-# Local storage and a responsive recent search list
+# A responsive recent search list
+In order to have a responsive recent search list, an event listener must be added to each element that gets added to the list. For this I added I class to each list element as they were created. I soon realized I could not have event listeners on simple html elements so I changed each to buttons and added an event listener for the entire ul and this worked!
+
+```bash
+recent.addEventListener("click", function(event){
+    event.preventDefault();
+    var target = event.target;
+    var buttonId = target.value;
+    searchApi(buttonId);
+
+})
+```
+recent is the id of the unordered list within the html and then event.target and target.value are used to access the value within the button click. In the function where the button is made. The value is assigned to be equal to the city entered in the search.
 
 # Screenshot
+
+```HTML
+<img src = "Screenshot (49).jpg" alt = "screenshot of webpage">
+```
+
 ## Live Link
 https://mmurphy222.github.io/06-weather-dashboard/
 

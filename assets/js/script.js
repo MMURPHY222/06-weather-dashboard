@@ -8,7 +8,7 @@ var mainUV = document.getElementById("mainUV");
 var mainHeader = document.getElementById("mainHeader");
 var cardHeader = document.getElementsByClassName("cardHeader");
 var recent = document.getElementById("recent");
-// var recentClick = document.getElementsByClassName("recentClick");
+var recentClick;
 
 // function that runs on search, has error for an attempted search with nothing entered
 // gets value entered into the search form and runs searchApi function with it
@@ -18,12 +18,10 @@ function formSubmit(event){
     var searchInputVal = document.querySelector('#city').value;
 
     if (!searchInputVal) {
-        console.error('You need to enter a city to search!');
         alert("'You need to enter a city to search!'");
         return;
       }
 
-    console.log("What are you " + searchInputVal);
 
     if(mainUV.classList.contains("low", "high", "moderate", "veryHigh", "extreme")){
         mainUV.classList.remove("low", "high", "moderate", "veryHigh", "extreme");
@@ -41,7 +39,6 @@ function searchApi(city){
             return response.json();
         })
        .then(function(item){
-            console.log(item);
 
             temp = item.main.temp;
             wind = item.wind.speed;
@@ -49,9 +46,6 @@ function searchApi(city){
             lat = item.coord.lat;
             lon = item.coord.lon;
             icon = item.weather[0].icon;
-            console.log("This is icon main " + icon);
-            console.log("This is temp " + temp);
-            console.log("This is wind " + wind);
             writeTemp(temp, wind, hum, icon);
             getUV(lat,lon);
             localStorage.setItem(city, item);
@@ -60,21 +54,16 @@ function searchApi(city){
         forecast(city);
         fillText(city);
         makeRecent(city);
-        // storeAndShow();
     }
 
 //writes city and current date in main section
 function fillText(city){
-    console.log(city, currentDay);
     mainHeader.textContent = city + "   " + currentDay;
 }
 
 //writes temp, wind, humidity, and icon in main section
 function writeTemp(temp, wind, hum, icon){
-    console.log("You too? " + icon);
-    console.log("Can I use this here? " + temp);
-
-    
+   
     mainIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
     mainTemp.textContent = "Temp: " + temp + "°F";
     mainWind.textContent = "Wind: " + wind + " mph";
@@ -91,11 +80,8 @@ function getUV(lat,lon) {
         return response.json();
     })
    .then(function(item){
-        console.log("Whatever is under me is the call to get UV using lat and lon");
-        console.log(item);
-
+    
         uvi = item.current.uvi;
-        console.log("THIS IS THE UV RIGHT HERE " + uvi);
         writeUV(uvi);
 
     })
@@ -106,22 +92,30 @@ function getUV(lat,lon) {
 function writeUV(uvi) {
     mainUV.textContent = "UVI: " + uvi;
 
-    if (0 <= uvi < 3 ){
-        mainUV.classList.add("low");
-        console.log("the uv is less than 3");
 
-    } else if (3 <= uvi < 6){
-        mainUV.classList.add("moderate");
+    switch(true){
+        case( uvi < 3):
+            mainUV.classList.add("low");
+            break;
+        
+        case (uvi < 6):
+            mainUV.classList.add("moderate");
+            break;
+        
+        case (uvi < 8):
+            mainUV.classList.add("high");
+            break;
 
-    } else if (6 <= uvi < 8){
-        mainUV.classList.add("high");
+        case (uvi < 11):
+            mainUV.classList.add("veryHigh")
+            break;
 
-    } else if (8 <= uvi < 11) {
-        mainUV.classList.add("veryHigh")
+        case(uvi >= 11):
+            mainUV.classList.add("extreme");
+            break;
 
-    } else if (11 <= uvi) {
-        mainUV.classList.add("extreme")
     }
+        
 }
 
 // another api call was needed for the five day forecast because the previous one did not contain a 5 day forecast
@@ -133,8 +127,6 @@ function forecast(city) {
         return response.json();
     })
    .then(function(item){
-        console.log("My underside is supposed to be 5 day forecast");
-        console.log(item);
         forecastArray = item.list;
         fillCards(forecastArray);
     })
@@ -143,8 +135,6 @@ function forecast(city) {
 // this writes the information for the cards
 // this is a five day forecast in 3 hour intervals so that is why the four loop is run in multiples of 8
 function fillCards(forecastArray){
-    console.log("Under me is supposed to be an array of 5 in 40 3 hour increments days");
-    console.log(forecastArray);
 
     for(var i = 0; i < 5; i ++){
         var cardTemp = document.getElementById("cardTemp" + i);
@@ -160,49 +150,40 @@ function fillCards(forecastArray){
         var icon = forecastArray[8*i].weather[0].icon;
 
         var newDate = moment(date*1000).format('MM/DD/YY');
-        console.log("lol " + newDate);
-
-        console.log("POOOOP" + icon);
         
         cardTemp.textContent = "Temp: " + temp  + "°F";
         cardWind.textContent = "Wind: " + wind + " mph";
         cardHum.textContent = "Humidity: " + hum + "%";
         cardHeader.textContent = newDate;
         cardIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
-
-        console.log("TEMP " + i + " " + temp);
-        console.log("Wind " + i + " " + wind);
-        console.log("Hum " + i + " " + hum);
     }
 }
 
 // this makes the recent search list 
 function makeRecent(city){
     var li = document.createElement("li");
-    li.textContent = city;
-    li.classList.add("recentClick");
-    li.classList.add("recent-search");
-    recent.appendChild(li);
+    var btn = document.createElement("button");
+    btn.classList.add("recentClick");
+    btn.classList.add("recent-search");
+    btn.textContent = city;
+    btn.setAttribute("value", city);
+    recent.prepend(li);
+    li.appendChild(btn);
+    recentClick = document.getElementsByClassName("recentClick");
+
+
 }
-
-// function storeAndShow (city){
-//     title = city;
-
-
-// }
-
 
 
 // Event listener for submit button click
 searchFormEl.addEventListener('submit', formSubmit);
 
-// $(".recentClick").click( function() {
-//     var buttonId = $(this).val();
-//     searchApi(buttonId);
-//     console.log("I saw your click")
-// })
+// adds event listener to items within the recent search list and then runs the function based on the click event
+// it then again runs the searchApi function which will fill the whole page with the city on the button they clicked 
+recent.addEventListener("click", function(event){
+    event.preventDefault();
+    var target = event.target;
+    var buttonId = target.value;
+    searchApi(buttonId);
 
-// recentClick.addEventListener("click", function(){
-
-
-// })
+})
