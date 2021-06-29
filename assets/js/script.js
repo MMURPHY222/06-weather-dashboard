@@ -32,7 +32,7 @@ function formSubmit(event){
 
 // parameter is city name that was searched, fetches initial values for main search and runs functions with those along with other functions with the city name
 function searchApi(city){
-    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + apiKey;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&appid=" + apiKey;
 
     fetch(apiUrl)
         .then(function(response){
@@ -64,7 +64,7 @@ function fillText(city){
 //writes temp, wind, humidity, and icon in main section
 function writeTemp(temp, wind, hum, icon){
    
-    mainIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+    mainIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
     mainTemp.textContent = "Temp: " + temp + "°F";
     mainWind.textContent = "Wind: " + wind + " mph";
     mainHum.textContent = "Humidity: " + hum + "%";
