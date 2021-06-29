@@ -155,7 +155,7 @@ function fillCards(forecastArray){
         cardWind.textContent = "Wind: " + wind + " mph";
         cardHum.textContent = "Humidity: " + hum + "%";
         cardHeader.textContent = newDate;
-        cardIcon.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+        cardIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
     }
 }
 
